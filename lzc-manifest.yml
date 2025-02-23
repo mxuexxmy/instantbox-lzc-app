@@ -1,0 +1,27 @@
+lzc-sdk-version: "0.1"
+name: instantbox
+package: xyz.mxue.instantbox
+version: 0.0.1
+description: 在不到 30s 内得到一个干净、开箱即用的临时 Linux 系统.
+homepage: https://github.com/instantbox/instantbox
+author: instantbox
+application:
+  subdomain: instantbox
+  background_task: false
+  multi_instance: false
+  gpu_accel: false
+  kvm_accel: false
+  usb_accel: false
+  routes:
+    - /=http://frontend.xyz.mxue.instantbox.lzcapp:80/
+services:
+  server:
+    image: registry.lazycat.cloud/mxuexxmy/instantbox/instantbox:3f8b93f5c9a7023c
+    environment:
+      - SERVERURL=
+  frontend:
+    image: registry.lazycat.cloud/mxuexxmy/instantbox/instantbox-frontend:8459b6935323bbf4
+  cron:
+    image: registry.lazycat.cloud/mxuexxmy/instantbox/cron:bf915e7fee011963
+    environment:
+      - CRON_STRINGS=* * * * * wget -qO /dev/null http://frontend/api/v2/superinspire/prune

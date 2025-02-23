@@ -1,0 +1,41 @@
+{
+  "name": "instantbox",
+  "package": "xyz.mxue.instantbox",
+  "description": "在不到 30s 内得到一个干净、开箱即用的临时 Linux 系统.",
+  "homepage": "https://github.com/instantbox/instantbox",
+  "author": "instantbox",
+  "app_features": [],
+  "subdomain": "instantbox",
+  "version": "0.0.1",
+  "iconPath": "icon.png",
+  "composePath": "docker-compose.yml",
+  "unsupported_platforms": [],
+  "lastRouteType": "from_compose",
+  "port_mappings": {
+    "frontend_8888_80": {
+      "use": true,
+      "type": "http",
+      "path": "/",
+      "targetPath": "/"
+    }
+  },
+  "image_instantbox_instantbox_latest": {
+    "originalImage": "instantbox/instantbox:latest",
+    "pushTarget": "lazycat",
+    "newImageName": "registry.lazycat.cloud/mxuexxmy/instantbox/instantbox:3f8b93f5c9a7023c",
+    "timestamp": "2025-02-22T05:16:44.316Z"
+  },
+  "server_volume_/var/run/docker.sock_action": "useContent",
+  "image_instantbox_instantbox-frontend_latest": {
+    "originalImage": "instantbox/instantbox-frontend:latest",
+    "pushTarget": "lazycat",
+    "newImageName": "registry.lazycat.cloud/mxuexxmy/instantbox/instantbox-frontend:8459b6935323bbf4",
+    "timestamp": "2025-02-22T05:17:04.113Z"
+  },
+  "image_instantbox_cron_latest": {
+    "originalImage": "instantbox/cron:latest",
+    "pushTarget": "lazycat",
+    "newImageName": "registry.lazycat.cloud/mxuexxmy/instantbox/cron:bf915e7fee011963",
+    "timestamp": "2025-02-22T05:17:21.232Z"
+  }
+}
